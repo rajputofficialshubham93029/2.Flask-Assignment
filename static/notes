@@ -1,0 +1,87 @@
+-pip install virtualenv
+
+-virtualenv env  -  if this command not create the env , we need to set the Execution policy from Powershell
+{
+ Set-ExecutionPolicy unrestricted
+ A(YEs to all)
+}
+
+-Activate the environment  :  Every time we need to switch in our environment .
+ .\env\Scripts\activate.ps1
+
+-pip install flask 
+
+-Google minimal flask app c & p , and add the main code to run app.
+
+-Run in (env) only , if using another teminal just start the env with upper code.
+ python .\app.py
+
+
+- Ctrl + Click on port to view website 
+
+-render_template('index.html')   -- need to import this to render html pages with end points 
+
+-Create the html page and show navbar , form , table 
+
+-Now creating the database , insall 
+pip install flask-sqlalchemy
+
+Now import it , and use it with configuration.
+
+-from flask_sqlalchemy import SQLAlchemy
+
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URL']='sqlite:////todo.db';
+app.config['SQLALCHEMY_TRACK_MODIFICATION']=False
+db=SQLAlchemy(app)
+
+
+-Now to create the database , we need to go to python interpretter in (env)
+ python
+ from app import db
+ db.create_all()             //see a file todo.db will be created
+
+(the above not worked for me . 
+So temporary :   
+python
+flask shell
+from app import db
+db.create_all()
+)
+This created todo.db  file in instance folder
+
+Now add the code in the app.py to save the current details of title and desc , using commit .....
+
+    todo=Todo(title="First Todo",desc="Stat learning Python Flask")
+    db.session.add(todo)
+    db.session.commit()
+
+Now As many time we refresh the page, we get this data added in todo.db file.
+
+-Google the SQLite3 Viewer 
+And drag the todo.db file to view them.
+
+-Install jinja2 snippet Kit.
+
+-Now to make the serial no  dynamic we are going to use jinja template.
+Use loop to index in Sno
+
+-Now to clean the previous data from todo.db file , just delete it and make new todo.db file from previous method.
+flask shell
+from app import db
+db.create_all()
+exit();
+
+-To also create the update.html file
+
+We need to use the template inheritance in jinja.
+
+Make a common class and place navigation bar,  header foooter in base class and render the page from the base class itself.
+
+
+{% block body %}
+    
+{% endblock body %}
+
+
+-- CTr+ Shift + R   (to remvoe changes forrm cache like body color set red etc)

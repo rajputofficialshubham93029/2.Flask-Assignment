@@ -1,0 +1,21 @@
+EXTRA :::: 
+Vs code : How to Run the todo List Project.
+
+
+1 . Drag drop Project to vs code.
+2. Make sure python3 is installed.( Optional : Python extension install for VsCode , jinja Template Kit , Live Server etc .)
+3. Open (Command pallet ) using Shortcut in VScode  :  CTRL + Shift  + P 
+   Search here :  python create environment venv
+  
+   After this:
+   Open  again (Command pallet )  pallet  and search : open new terminal.
+  
+   After this: Run the follwing terminal commands
+4. Install flask using  :     python -m pip install flask
+5. For database instance  :   pip install flask-sqlalchemy
+6.Start project       : flask run
+7.Open the link with Ctrl + click to view in browser.
+
+
+Kindly connect with me shivamrai714714@gmail.com . If any issues in running project.
+Project image is also attached for understanding.
